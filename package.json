@@ -1,0 +1,41 @@
+{
+  "name": "microscript-language-extension",
+  "displayName": "Microscript Language Support",
+  "version": "0.0.1",
+  "description": "Adds support for the microscript language",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "ms",
+        "aliases": [
+          "Microscript",
+          "ms"
+        ],
+        "extensions": [
+          ".ms"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "ms",
+        "scopeName": "source.ms",
+        "path": "./syntaxes/microscript.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/snippets.json"
+      }
+    ]
+  }
+}

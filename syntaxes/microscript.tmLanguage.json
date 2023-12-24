@@ -1,0 +1,192 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "microscript",
+  "scopeName": "source.ms",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#operators"
+    },
+    {
+      "include": "#parentheses"
+    },
+    {
+      "include": "#variables"
+    },
+    {
+      "include": "#support.function"
+    },
+    {
+      "include": "#instances"
+    },
+    {
+      "include": "#builtinFunctions"
+    },
+    {
+      "include": "#constants"
+    },
+    {
+      "include": "#builtinClasses"
+    },
+    {
+      "include": "#default"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "match": "\\/\\/.*$",
+          "name": "comment.line.double-slash"
+        },
+        {
+          "begin": "\\/\\*",
+          "end": "\\*\\/",
+          "name": "comment.block"
+        },
+        {
+          "begin": "\"\"\"",
+          "end": "\"\"\"",
+          "name": "comment.block"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "begin": "\"",
+          "end": "\"",
+          "name": "string.quoted.double"
+        },
+        {
+          "begin": "'",
+          "end": "'",
+          "name": "string.quoted.single"
+        },
+        {
+          "begin": "'''",
+          "end": "'''",
+          "name": "string.quoted.triple"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "match": "0x[a-fA-F0-9]+",
+          "name": "constant.numeric.hex"
+        },
+        {
+          "match": "\\b(?:\\d+(?:\\.\\d*)?|\\.\\d+)(?:[eE][+-]?\\d+\\b)?",
+          "name": "constant.numeric"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "match": "\\b(?:do|after|every|sleep|else|elsif|end|function|if|in|to|local|then|or|and|not|object|class|extends|new|constructor|for|while|delete|by|return|break|continue)\\b",
+          "name": "keyword.control"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "match": "\\+|\\-|\\*|\\/|%|&|\\||\\^|<|>|<=|=>|==|=|&=|\\|=",
+          "name": "keyword.operator"
+        }
+      ]
+    },
+    "parentheses": {
+      "patterns": [
+        {
+          "match": "[\\[\\(]",
+          "name": "paren.lparen"
+        },
+        {
+          "match": "[\\]\\)]",
+          "name": "paren.rparen"
+        }
+      ]
+    },
+    "variables": {
+      "patterns": [
+        {
+          "match": "\\b(?:this|type|super|global)\\b",
+          "name": "variable.language"
+        },
+        {
+          "match": "(?:\\.[a-zA-Z0-9_]+)",
+          "name": "identifier.field"
+        },
+        {
+          "match": "[a-zA-Z][a-zA-Z0-9_]*\\b",
+          "name": "variable.other"
+        }
+      ]
+    },
+    "support.function": {
+      "patterns": [
+        {
+          "match": "\\b(?:screen|system|audio|gamepad|keyboard|touch|mouse|storage|asset_manager|print|type|log|max|PI|pow|random|ceil|round|floor|abs|sqrt|min|exp|sin|atan|concat|sortList|cos|sin|tan|acos|asin|atan|atan2|sind|cosd|tand|acosd|asind|atand|atan2d|Function|Number|String|List|Object|Image|Sprite|Sound)\\b",
+          "name": "support.function"
+        }
+      ]
+    },
+    "instances": {
+      "patterns": [
+        {
+          "match": "\\b(?:screen|system|audio|gamepad|keyboard|touch|mouse|storage|asset_manager|random)\\b",
+          "name": "support.class.instance"
+        }
+      ]
+    },
+    "builtinFunctions": {
+      "patterns": [
+        {
+          "match": "\\b(?:print|log|max|min|ceil|round|floor|abs|sqrt|exp|sin|atan|concat|sortList|cos|sin|tan|acos|asin|atan|atan2|sind|cosd|tand|acosd|asind|atand|atan2d|pow)\\b",
+          "name": "support.function.builtin"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "match": "\\b(?:true|false|PI)\\b",
+          "name": "constant.language"
+        }
+      ]
+    },
+    "builtinClasses": {
+      "patterns": [
+        {
+          "match": "\\b(?:Function|Number|String|List|Object|Image|Sprite|Sound)\\b",
+          "name": "support.class.builtin"
+        }
+      ]
+    },
+    "default": {
+      "patterns": [
+        {
+          "match": "\\s+|\\w+",
+          "name": "text"
+        }
+      ]
+    }
+  },
+  "fileTypes": [
+    "ms"
+  ]
+}
